@@ -8,8 +8,11 @@
 
 import UIKit
 
-class TestTableViewController: UIViewController {
+class TestTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +30,25 @@ class TestTableViewController: UIViewController {
     }
     */
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        }
+
+        cell?.textLabel?.text = "Row - \(indexPath.row + 1)"
+        
+        return cell!
+    }
 }
