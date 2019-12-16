@@ -8,38 +8,44 @@
 
 import UIKit
 
+protocol PopoverPresentable where Self: UIViewController {
+    
+    func preferredContentsizeForPopover() -> CGSize
+}
 
-class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate {
 
-    // MARK:- Static
+class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate {
+
+    // MARK:- Properties
+
+    static let shared = FAPopoverManager()
+    static var defaultSizeForPopover = CGSize(width: 250, height: 320)
+    
+    // MARK:- Life Cycle
 
     private override init() { super.init() }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-
-    
-    static let shared = FAPopoverManager()
-
-    
-    static var backgroundColorOverlay: UIColor = UIColor.black.withAlphaComponent(0.0)
-    static var backgroundColorPopover: UIColor = .white
-    static var fadeInDuration: TimeInterval = 0.2
-    static var fadeOutDuration: TimeInterval = 0.15
-    static var fadeInAlpha: CGFloat = 0.3
 
 
-    fileprivate weak var topViewController: UIViewController!
+    // MARK:- Functions
 
-    
-    
-
-    static func show(_ controller: UIViewController, arrow: UIPopoverArrowDirection, contentSize: CGSize, sourceRect: CGRect, sourceView: UIView) {
+    static func show(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceRect: CGRect, sourceView: UIView) {
+        
+        if let popoverPresentableController = controller as? PopoverPresentable {
+            controller.preferredContentSize = popoverPresentableController.preferredContentsizeForPopover()
+        }
+        else if let navigationController = controller as? UINavigationController {
+            if let firstController = navigationController.viewControllers.first as? PopoverPresentable {
+                navigationController.preferredContentSize = firstController.preferredContentsizeForPopover()
+            }
+            else {
+                controller.preferredContentSize = FAPopoverManager.defaultSizeForPopover
+            }
+        }
+        else {
+            controller.preferredContentSize = FAPopoverManager.defaultSizeForPopover
+        }
         
         controller.modalPresentationStyle = .popover
-        controller.preferredContentSize = contentSize
         let presentationController = controller.presentationController as! UIPopoverPresentationController
         presentationController.delegate = FAPopoverManager.shared
         presentationController.sourceView = sourceView
@@ -49,14 +55,7 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate {
         topViewController.present(controller, animated: true)
     }
     
-    // MARK: - IBActions
-    
-//    func dismissPopover() {
-//
-//        guard let topViewController = self.topViewController else { return }
-//        guard let presentedVC = topViewController.presentedViewController else { return }
-//        guard let popoverPresentationController = presentedVC.popoverPresentationController else { return }
-//        guard let delegate = popoverPresentationController.delegate else { return }
-//        delegate.popoverPresentationControllerDidDismissPopover!(popoverPresentationController)
-//    }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }

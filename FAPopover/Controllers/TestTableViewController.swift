@@ -8,27 +8,21 @@
 
 import UIKit
 
-class TestTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TestTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopoverPresentable {
+
+    func preferredContentsizeForPopover() -> CGSize { return CGSize(width: 200, height: 200) }
 
     @IBOutlet weak var tableView: UITableView!
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.preferredContentSize = preferredContentsizeForPopover()
+        super.viewWillAppear(animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
@@ -50,5 +44,10 @@ class TestTableViewController: UIViewController, UITableViewDelegate, UITableVie
         cell?.textLabel?.text = "Row - \(indexPath.row + 1)"
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showDetails", sender: self)
     }
 }
