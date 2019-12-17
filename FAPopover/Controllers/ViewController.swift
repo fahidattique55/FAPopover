@@ -30,10 +30,11 @@ class ViewController: UIViewController {
         FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
     }
 
-//    @IBAction func showSingleControllerInPopover(_ sender: UIBarButtonItem) {
+    @IBAction func showSingleControllerInFromUIBarButtonItem(_ sender: UIBarButtonItem) {
         
-//                let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-//                FAPopoverViewController.shared.showWithNewStyle(testViewController, arrow: UIPopoverArrowDirection.up, contentSize: CGSize(width: 200, height: 200), sourceView: sender)
-//    }
+        let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+        let navigationController = UINavigationController(rootViewController: testViewController)
+        FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
+    }
 }
 

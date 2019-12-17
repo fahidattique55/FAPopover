@@ -14,6 +14,7 @@ class TestTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.preferredContentSize = preferredContentsizeForPopover()
@@ -23,6 +24,8 @@ class TestTableViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    // MARK: - Functions
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30

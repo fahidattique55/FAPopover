@@ -30,6 +30,22 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
 
     static func show(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceRect: CGRect, sourceView: UIView) {
         
+        configureContentSize(for: controller)
+        configurePopover(for: controller, arrow: arrow, sourceRect: sourceRect, sourceView: sourceView)
+        guard let topViewController = UIViewController.topViewController() else { fatalError("Top Controller can't be nil.") }
+        topViewController.present(controller, animated: true)
+    }
+
+    static func showFromBarButtonItem(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceView: UIBarButtonItem) {
+
+        configureContentSize(for: controller)
+        configurePopover(for: controller, arrow: arrow, sourceView: sourceView)
+        guard let topViewController = UIViewController.topViewController() else { fatalError("Top Controller can't be nil.") }
+        topViewController.present(controller, animated: true)
+    }
+
+    private static func configureContentSize(for controller: UIViewController) {
+        
         if let popoverPresentableController = controller as? PopoverPresentable {
             controller.preferredContentSize = popoverPresentableController.preferredContentsizeForPopover()
         }
@@ -44,6 +60,9 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
         else {
             controller.preferredContentSize = FAPopoverManager.defaultSizeForPopover
         }
+    }
+
+    private static func configurePopover(for controller: UIViewController, arrow: UIPopoverArrowDirection, sourceRect: CGRect, sourceView: UIView) {
         
         controller.modalPresentationStyle = .popover
         let presentationController = controller.presentationController as! UIPopoverPresentationController
@@ -51,8 +70,15 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
         presentationController.sourceView = sourceView
         presentationController.sourceRect = sourceRect
         presentationController.permittedArrowDirections = arrow
-        guard let topViewController = UIViewController.topViewController() else { fatalError("Top Controller can't be nil.") }
-        topViewController.present(controller, animated: true)
+    }
+
+    private static func configurePopover(for controller: UIViewController, arrow: UIPopoverArrowDirection, sourceView: UIBarButtonItem) {
+        
+        controller.modalPresentationStyle = .popover
+        let presentationController = controller.presentationController as! UIPopoverPresentationController
+        presentationController.delegate = FAPopoverManager.shared
+        presentationController.barButtonItem = sourceView
+        presentationController.permittedArrowDirections = arrow
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
