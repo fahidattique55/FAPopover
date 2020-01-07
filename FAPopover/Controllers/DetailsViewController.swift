@@ -23,6 +23,7 @@ class DetailsViewController: UITableViewController, PopoverPresentable {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Details"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

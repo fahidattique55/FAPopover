@@ -23,6 +23,7 @@ class TestTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Title"
     }
 
     // MARK: - Functions
