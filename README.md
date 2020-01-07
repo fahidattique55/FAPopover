@@ -36,11 +36,26 @@ Right now **FAPopover** is only supported via swift package manager. You can als
 
 
 
-## Usage
+## Usage (2 Steps)
+
+### Step 1
+
+Conform the controller with `PopoverPresentable` protocol and provide `CGSize` for the controller
+
+### Step 2
+
+In `viewWillAppear` set the `preferredContentSize = preferredContentsizeForPopover()`
+
+### Step for setting size of navigation controller
+
+In `viewWillAppear` set the `navigationController?.preferredContentSize = preferredContentsizeForPopover()`
+
+
+### Examples
 
 Following are some examples of how you can use FAPopoverManager,
 
-### Case 1 (Simple)
+#### Case 1 (Simple)
 
 ```
 @IBAction func showSingleControllerInPopover(_ sender: UIButton) {
@@ -50,7 +65,7 @@ Following are some examples of how you can use FAPopoverManager,
 }
 ```
 
-### Case 2 (Navigation)
+#### Case 2 (Navigation)
 
 ```
 @IBAction func showNavigationalPopover(_ sender: UIButton) {
@@ -61,7 +76,7 @@ Following are some examples of how you can use FAPopoverManager,
 }
 ```
 
-### Case 3 (UIBarButtonItem + Navigation)
+#### Case 3 (UIBarButtonItem + Navigation)
 
 ```
 @IBAction func showSingleControllerInFromUIBarButtonItem(_ sender: UIBarButtonItem) {
