@@ -11,7 +11,7 @@ import UIKit
 
 extension UIViewController {
 
-    class func topViewController(_ base: UIViewController? = UIApplication.shared.windows.first!.rootViewController) -> UIViewController? {
+    public class func topViewController(_ base: UIViewController? = UIApplication.shared.windows.first!.rootViewController) -> UIViewController? {
 
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)

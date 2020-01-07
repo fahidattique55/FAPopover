@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol PopoverPresentable where Self: UIViewController {
+public protocol PopoverPresentable where Self: UIViewController {
     
-    func preferredContentsizeForPopover() -> CGSize
+    public func preferredContentsizeForPopover() -> CGSize
 }
 
 
-class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate {
+public class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate {
 
     // MARK:- Properties
 
     static let shared = FAPopoverManager()
-    static var defaultSizeForPopover = CGSize(width: 250, height: 320)
+    public static var defaultSizeForPopover = CGSize(width: 250, height: 320)
 
     // MARK:- Life Cycle
 
@@ -28,7 +28,7 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
 
     // MARK:- Functions
 
-    static func show(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceRect: CGRect, sourceView: UIView) {
+    public static func show(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceRect: CGRect, sourceView: UIView) {
         
         configureContentSize(for: controller)
         configurePopover(for: controller, arrow: arrow, sourceRect: sourceRect, sourceView: sourceView)
@@ -36,7 +36,7 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
         topViewController.present(controller, animated: true)
     }
 
-    static func showFromBarButtonItem(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceView: UIBarButtonItem) {
+    public static func showFromBarButtonItem(_ controller: UIViewController, arrow: UIPopoverArrowDirection, sourceView: UIBarButtonItem) {
 
         configureContentSize(for: controller)
         configurePopover(for: controller, arrow: arrow, sourceView: sourceView)
@@ -81,7 +81,7 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
         presentationController.permittedArrowDirections = arrow
     }
     
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
 }
