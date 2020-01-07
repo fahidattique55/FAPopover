@@ -55,6 +55,7 @@ Following are some examples of how you can use FAPopoverManager,
 ```
 let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
 let navigationController = UINavigationController(rootViewController: testViewController)
+
 FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
 ```
 
@@ -62,6 +63,7 @@ FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bound
 
 ```
 let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+
 FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
 ```
 
@@ -70,6 +72,7 @@ FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds,
 ```
 let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
 let navigationController = UINavigationController(rootViewController: testViewController)
+
 FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
 ```
 
