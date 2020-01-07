@@ -48,9 +48,24 @@ Right now **InteractiveView** is only supported via swift package manager. You c
 
 ## Usage
 
-- Set the class of your UIVIew in xib or storyboard as **InteractiveView** and make it fluid interactive.
+Following are some examples of how you can use FAPopoverManager,
 
-![Alt text](https://i.imgur.com/9Ed6o5R.png "FAPanel-Image-Usage")
+```
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    let navigationController = UINavigationController(rootViewController: testViewController)
+    FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+```
+
+```
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+```
+
+```
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    let navigationController = UINavigationController(rootViewController: testViewController)
+    FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
+```
 
 
 
