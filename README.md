@@ -78,7 +78,7 @@ Following are some examples of how you can use FAPopoverManager,
 
 <p align="center">
     <a href="http://i.imgur.com/4dpN8d7.gif">
-        <img src="https://i.imgur.com/RK8frD8.gif" height="450">
+        <img src="https://i.imgur.com/RK8frD8.gif" height="300">
     </a>
 </p>
 
