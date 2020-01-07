@@ -53,18 +53,22 @@ Following are some examples of how you can use FAPopoverManager,
 ### Case 1 (Simple)
 
 ```
-let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-
-FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+@IBAction func showSingleControllerInPopover(_ sender: UIButton) {
+    
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+}
 ```
 
 ### Case 2 (Navigation)
 
 ```
-let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-let navigationController = UINavigationController(rootViewController: testViewController)
-
-FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+@IBAction func showNavigationalPopover(_ sender: UIButton) {
+    
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    let navigationController = UINavigationController(rootViewController: testViewController)
+    FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+}
 ```
 
 ### Case 3 (UIBarButtonItem + Navigation)

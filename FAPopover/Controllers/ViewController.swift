@@ -17,17 +17,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func showSingleControllerInPopover(_ sender: UIButton) {
+        
+        let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+        FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+    }
+
     @IBAction func showNavigationalPopover(_ sender: UIButton) {
         
         let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
         let navigationController = UINavigationController(rootViewController: testViewController)
         FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
-    }
-
-    @IBAction func showSingleControllerInPopover(_ sender: UIButton) {
-        
-        let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-        FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
     }
 
     @IBAction func showSingleControllerInFromUIBarButtonItem(_ sender: UIBarButtonItem) {
