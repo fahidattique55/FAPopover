@@ -17,21 +17,11 @@
 
 
 
-## Design Theory
+## Benefits
 
-We want our views feel more responsive, acknowledging to the user that they are functional. In addition, we want the action to be cancellable if the user decides against their action after they touched down. This allows users to make quicker decisions since they can perform actions in parallel with thought.
-
-
-## What are fluid interfaces?
-
-A fluid interface might also be called ***fast***, ***smooth***, ***natural***, or ***magical***. It’s a frictionless experience that just feels ***right***.
-
-The WWDC presentation talks about fluid interfaces as “an extension of your mind” and “an extension of the natural world”. An interface is fluid when it behaves according to the way people think, not the way machines think.
-
-
-## What makes them fluid?
-
-Fluid interfaces are responsive, interruptible, and redirectable.
+- Single library to show popovers in both iPhones & iPads
+- One line usage with easy integration
+- Works on iPhone portrait and landscape mode as well
 
 
 
@@ -40,7 +30,7 @@ Fluid interfaces are responsive, interruptible, and redirectable.
 
 ### Swift Package Manager
 
-Right now **InteractiveView** is only supported via swift package manager. You can also install it manually.
+Right now **FAPopover** is only supported via swift package manager. You can also install it manually. Just drag source folder files into your project and you're all set.
 
 
 
@@ -90,7 +80,7 @@ Following are some examples of how you can use FAPopoverManager,
 
 InteractiveView is licensed under MIT.
 
-For more details visit the [LICENSE](https://github.com/fahidattique55/InteractiveView/blob/master/LICENSE.txt) file for more info.
+For more details visit the [LICENSE](https://github.com/fahidattique55/FAPopover/blob/master/LICENSE.txt) file for more info.
 
 
 ## Author

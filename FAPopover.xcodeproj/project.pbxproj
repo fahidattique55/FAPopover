@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		932D8F1D23C455D900D7FFCC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 932D8F1C23C455D900D7FFCC /* README.md */; };
+		932D8F1F23C45D6F00D7FFCC /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 932D8F1E23C45D6F00D7FFCC /* LICENSE.txt */; };
 		933E534723A31C5300E8A043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 933E534623A31C5300E8A043 /* Assets.xcassets */; };
 		9342CB2123A76CF30054E0C4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CB2023A76CF30054E0C4 /* DetailsViewController.swift */; };
 		93D2EDF923A31F6D0028736D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933E534323A31C5200E8A043 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		932D8F1C23C455D900D7FFCC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		932D8F1E23C45D6F00D7FFCC /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
 		933E533A23A31C5200E8A043 /* FAPopover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAPopover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933E534423A31C5200E8A043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		933E534623A31C5300E8A043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				932D8F1C23C455D900D7FFCC /* README.md */,
+				932D8F1E23C45D6F00D7FFCC /* LICENSE.txt */,
 				93D2EE0323A320250028736D /* Source */,
 				933E535123A31C8300E8A043 /* Application */,
 				933E535323A31C9A00E8A043 /* Views */,
@@ -183,6 +186,7 @@
 				93D2EDF923A31F6D0028736D /* Main.storyboard in Resources */,
 				93D2EDFA23A31F6D0028736D /* LaunchScreen.storyboard in Resources */,
 				932D8F1D23C455D900D7FFCC /* README.md in Resources */,
+				932D8F1F23C45D6F00D7FFCC /* LICENSE.txt in Resources */,
 				933E534723A31C5300E8A043 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
