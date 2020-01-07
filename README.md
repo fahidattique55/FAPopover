@@ -50,7 +50,15 @@ Right now **InteractiveView** is only supported via swift package manager. You c
 
 Following are some examples of how you can use FAPopoverManager,
 
-### Case 1
+### Case 1 (Simple)
+
+```
+let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+
+FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+```
+
+### Case 2 (Navigation)
 
 ```
 let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
@@ -59,21 +67,16 @@ let navigationController = UINavigationController(rootViewController: testViewCo
 FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
 ```
 
-### Case 2
+### Case 3 (UIBarButtonItem + Navigation)
 
 ```
-let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+@IBAction func showSingleControllerInFromUIBarButtonItem(_ sender: UIBarButtonItem) {
+    
+    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+    let navigationController = UINavigationController(rootViewController: testViewController)
 
-FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
-```
-
-### Case 3
-
-```
-let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-let navigationController = UINavigationController(rootViewController: testViewController)
-
-FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
+    FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
+}
 ```
 
 
