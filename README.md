@@ -50,21 +50,27 @@ Right now **InteractiveView** is only supported via swift package manager. You c
 
 Following are some examples of how you can use FAPopoverManager,
 
-```
-    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-    let navigationController = UINavigationController(rootViewController: testViewController)
-    FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
-```
+### Case 1
 
 ```
-    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-    FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+let navigationController = UINavigationController(rootViewController: testViewController)
+FAPopoverManager.show(navigationController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
 ```
 
+### Case 2
+
 ```
-    let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
-    let navigationController = UINavigationController(rootViewController: testViewController)
-    FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
+let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+FAPopoverManager.show(testViewController, arrow: .up, sourceRect: sender.bounds, sourceView: sender)
+```
+
+### Case 3
+
+```
+let testViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TestTableViewController")
+let navigationController = UINavigationController(rootViewController: testViewController)
+FAPopoverManager.showFromBarButtonItem(navigationController, arrow: .up, sourceView: sender)
 ```
 
 
