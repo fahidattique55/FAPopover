@@ -10,7 +10,7 @@ import UIKit
 
 public protocol PopoverPresentable where Self: UIViewController {
     
-    public func preferredContentsizeForPopover() -> CGSize
+    func preferredContentsizeForPopover() -> CGSize
 }
 
 
