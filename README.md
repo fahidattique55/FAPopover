@@ -1,4 +1,4 @@
-![Alt text](https://i.imgur.com/bxwf2aA.png "FAInteractiveView-Image")
+![Alt text](https://i.imgur.com/v12tbAh.png "FAPopover-Image")
 
 
 <p align="center">
