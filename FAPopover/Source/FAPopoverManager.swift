@@ -20,7 +20,7 @@ class FAPopoverManager: NSObject, UIPopoverPresentationControllerDelegate, UINav
 
     static let shared = FAPopoverManager()
     static var defaultSizeForPopover = CGSize(width: 250, height: 320)
-    
+
     // MARK:- Life Cycle
 
     private override init() { super.init() }
